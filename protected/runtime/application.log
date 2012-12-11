@@ -1767,3 +1767,30 @@ REQUEST_URI=/hrm/index.php?r=recruitmentMain/admin
 in D:\wamp\www\hrm\protected\views\recruitmentMain\admin.php (54)
 in D:\wamp\www\hrm\protected\controllers\RecruitmentMainController.php (143)
 in D:\wamp\www\hrm\index.php (13)
+2012/12/11 12:11:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1049] Unknown database 'inspur_hrm'' in D:\wamp\www\hrm\framework\db\CDbConnection.php:382
+Stack trace:
+#0 D:\wamp\www\hrm\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 D:\wamp\www\hrm\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 D:\wamp\www\hrm\framework\base\CModule.php(388): CDbConnection->init()
+#3 D:\wamp\www\hrm\framework\base\CApplication.php(431): CModule->getComponent('db')
+#4 D:\wamp\www\hrm\framework\db\ar\CActiveRecord.php(624): CApplication->getDb()
+#5 D:\wamp\www\hrm\framework\db\ar\CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 D:\wamp\www\hrm\framework\db\ar\CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(RecruitmentMain))
+#7 D:\wamp\www\hrm\framework\web\CActiveDataProvider.php(75): CActiveRecord::model('RecruitmentMain')
+#8 D:\wamp\www\hrm\protected\controllers\RecruitmentMainController.php(125): CActiveDataProvider->__construct('RecruitmentMain')
+#9 D:\wamp\www\hrm\framework\web\actions\CInlineAction.php(50): RecruitmentMainController->actionIndex()
+#10 D:\wamp\www\hrm\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 D:\wamp\www\hrm\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 D:\wamp\www\hrm\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 D:\wamp\www\hrm\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 D:\wamp\www\hrm\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 D:\wamp\www\hrm\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 D:\wamp\www\hrm\framework\web\CController.php(292): CFilterChain->run()
+#17 D:\wamp\www\hrm\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\wamp\www\hrm\framework\web\CWebApplication.php(283): CController->run('')
+#19 D:\wamp\www\hrm\framework\web\CWebApplication.php(142): CWebApplication->runController('recruitmentMain')
+#20 D:\wamp\www\hrm\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 D:\wamp\www\hrm\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/hrm/index.php?r=recruitmentMain
+---
