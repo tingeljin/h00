@@ -107,6 +107,7 @@ class RecruitmentMain extends CActiveRecord
 		return array(
 			'recruitmentContacts' => array(self::HAS_MANY, 'RecruitmentContact', 'recruitment_id'),
 			'staffMains' => array(self::HAS_MANY, 'StaffMain', 'recruitment_id'),
+			'sourceType'=>array(self::BELONGS_TO,'Source','id')
 		);
 	}
 
@@ -204,23 +205,11 @@ class RecruitmentMain extends CActiveRecord
 		$educationalLevelOptions[$this->educational_level] :
 		"unknow Educational Level ({$this->educational_level})";
 	}
-	/**
-	 * get config Educational Level options
-	 */
-	public function getSourceTypesOptions()
-	{
-		return array(
-				self::SOURCE_TALENT_MARKET=>'人才市场',
-				self::SOURCE_ONLINE_RECRUITMENT=>'网络招聘',
-				self::SOURCE_CAMPUS_RECRUITMENT=>'校园招聘',
-				self::SOURCE_INTRODUCED=>'介绍推荐',
-				self::SOURCE_TRANSFER=>'其他转入',
-		);
-	}
+
 	public function getSourceTypesText(){
-		$SourceTypesOptions=$this->sourceTypesOptions;
-		return isset($SourceTypesOptions[$this->source_types]) ?
-		$SourceTypesOptions[$this->source_types] :
+		$sourceTypesList=Source::model()->sourceTypesList;
+		return isset($sourceTypesList[$this->source_types]) ?
+		$sourceTypesList[$this->source_types] :
 		"unknow Source Types ({$this->source_types})";
 	}
 }

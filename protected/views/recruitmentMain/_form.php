@@ -23,7 +23,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'age'); ?>
-		<?php echo $form->dropDownList($model,'age',$model->getAgeOptions()); ?>
+		<?php echo $form->dropDownList($model,'age',$model->getAgeOptions(),array('empty'=>'-请选择-')); ?>
 		<?php echo $form->error($model,'age'); ?>
 		
 	</div>
@@ -72,7 +72,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'source_types'); ?>
-		<?php echo $form->dropDownList($model,'source_types',$model->getSourceTypesOptions()); ?>
+		<?php echo $form->dropDownList($model,'source_types',Source::model()->getSourceTypesOptions()); ?>
 		<?php echo $form->error($model,'source_types'); ?>
 	</div>
 
