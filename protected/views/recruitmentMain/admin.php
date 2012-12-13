@@ -53,7 +53,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		//'educational_level',
 		array('name'=>'educational_level','filter'=>$model->getEducationalLevelOptions(),'value'=>'$data->getEducationalLevelText()'),
 		//'source_types',
-		array('name'=>'source_types','filter'=>$model->getSourceTypesOptions(),'value'=>'$data->getSourceTypesText()'),
+		array('name'=>'source_types','filter'=>Source::model()->getSourceTypesOptions(),'value'=>'$data->sourceType->name'),
 		/*
 		'graduated_school',
 		'hometown',

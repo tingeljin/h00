@@ -107,7 +107,7 @@ class RecruitmentMain extends CActiveRecord
 		return array(
 			'recruitmentContacts' => array(self::HAS_MANY, 'RecruitmentContact', 'recruitment_id'),
 			'staffMains' => array(self::HAS_MANY, 'StaffMain', 'recruitment_id'),
-			'sourceType'=>array(self::BELONGS_TO,'Source','id')
+			'sourceType'=>array(self::BELONGS_TO,'Source','source_types')
 		);
 	}
 
@@ -206,10 +206,5 @@ class RecruitmentMain extends CActiveRecord
 		"unknow Educational Level ({$this->educational_level})";
 	}
 
-	public function getSourceTypesText(){
-		$sourceTypesList=Source::model()->sourceTypesList;
-		return isset($sourceTypesList[$this->source_types]) ?
-		$sourceTypesList[$this->source_types] :
-		"unknow Source Types ({$this->source_types})";
-	}
+
 }

@@ -47,7 +47,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('source_types')); ?>:</b>
-	<?php echo CHtml::encode($data->getSourceTypesText()); ?>
+	<?php echo CHtml::encode($data->sourceType->name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('source')); ?>:</b>

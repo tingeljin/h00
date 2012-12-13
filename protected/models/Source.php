@@ -96,10 +96,6 @@ class Source extends CActiveRecord
 		$sourceTypesList=CHtml::listData($sourceTypesOptions, 'id', 'name');
 		return $sourceTypesList;
 	}
-	public function getSourceTypesName($id)
-	{
-		$sourceName = $this->findAllByPk(array('id'=>$id));
-		return $sourceName[name];
-	}
+
 	
 }

@@ -32,7 +32,7 @@ $this->menu=array(
 		'hometown_address',
 		'applied_position',
 		//'source_types',
-		array('name'=>'source_types','value'=>CHtml::encode($model->getSourceTypesText())),
+		array('name'=>'source_types','value'=>$model->sourceType->name),
 		'source',
 		'other',
 		'create_user_id',
