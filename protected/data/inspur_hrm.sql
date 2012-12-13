@@ -1,9 +1,3 @@
-/*==============================================================*/
-/* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2012/12/11 ÐÇÆÚ¶þ 14:00:40                      */
-/*==============================================================*/
-
-
 drop table if exists accommodation_management;
 
 drop table if exists account_management;
@@ -25,6 +19,8 @@ drop table if exists lockers_use;
 drop table if exists recruitment_contact;
 
 drop table if exists recruitment_main;
+
+drop table if exists source;
 
 drop table if exists staff_main;
 
@@ -206,6 +202,17 @@ create table recruitment_main
 );
 
 /*==============================================================*/
+/* Table: source                                                */
+/*==============================================================*/
+create table source
+(
+   id                   int not null,
+   pid                  int not null,
+   name                 varchar(50),
+   primary key (id)
+);
+
+/*==============================================================*/
 /* Table: staff_main                                            */
 /*==============================================================*/
 create table staff_main
@@ -282,4 +289,3 @@ alter table staff_main add constraint FK_Relationship_4 foreign key (recruitment
 
 alter table staff_post add constraint FK_Relationship_6 foreign key (staff_id)
       references staff_main (staff_id) on delete restrict on update restrict;
-
