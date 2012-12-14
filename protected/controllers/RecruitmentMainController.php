@@ -32,7 +32,7 @@ class RecruitmentMainController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','dynamicSource'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -166,6 +166,17 @@ class RecruitmentMainController extends Controller
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
+		}
+	}
+	/**
+	 * 
+	 */
+	public function actionDynamicSource($pid)
+	{
+		$model=Source::model()->getSourceOptions($pid);
+		foreach ($model as $value=>$name)
+		{
+			echo CHtml::tag('option',array('value'=>$value),CHtml::encode($name),true);
 		}
 	}
 }

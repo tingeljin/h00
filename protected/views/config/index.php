@@ -7,7 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Config', 'url'=>array('create')),
+	array('label'=>'Create Config Sub', 'url'=>array('createconfigsub')),
+	array('label'=>'Create Config Type', 'url'=>array('createconfigtype')),
 	array('label'=>'Manage Config', 'url'=>array('admin')),
 );
 ?>

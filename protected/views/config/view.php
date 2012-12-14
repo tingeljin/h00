@@ -9,7 +9,8 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Config', 'url'=>array('index')),
-	array('label'=>'Create Config', 'url'=>array('create')),
+	array('label'=>'Create Config Sub', 'url'=>array('createconfigsub')),
+	array('label'=>'Create Config Type', 'url'=>array('createconfigtype')),
 	array('label'=>'Update Config', 'url'=>array('update', 'id'=>$model->setting_id)),
 	array('label'=>'Delete Config', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->setting_id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Config', 'url'=>array('admin')),
@@ -22,7 +23,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'setting_id',
-		'age_config',
-		'recruitment_status',
+		'setting_pid',
+		'setting_name',
 	),
 )); ?>

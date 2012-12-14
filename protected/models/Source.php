@@ -96,6 +96,14 @@ class Source extends CActiveRecord
 		$sourceTypesList=CHtml::listData($sourceTypesOptions, 'id', 'name');
 		return $sourceTypesList;
 	}
+	/**
+	 * 获取子目录数据
+	 */
+	public function getSourceOptions($pid)
+	{
+		$model = $this->findAllByAttributes(array('pid'=>$pid));
+		return CHtml::listData($model, 'id', 'name');
+	}
 
 	
 }

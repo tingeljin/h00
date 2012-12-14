@@ -15,11 +15,7 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'setting_pid'); ?>
-		<?php echo $form->dropDownList($model,'setting_pid',$model->getConfigTypesOptions()); ?>
-		<?php echo $form->error($model,'setting_pid'); ?>
-	</div>
+
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'setting_name'); ?>

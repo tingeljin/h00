@@ -35,34 +35,7 @@ class RecruitmentMain extends CActiveRecord
 	 * @return RecruitmentMain the static model class
 	 */
 	
-	/**
-	 * 定义2常量，分别为男，女
-	 * @return 0，1
-	 */
-	const AGE_MAN=0;
-	const AGE_WOMAN=1;
-	
-	/**
-	 * 定义4常量，分别记录学历情况，中专，大专，本科
-	 * @return 0,1,2
-	 */
-	const XUELI_ZHONGZHUAN=0;
-	const XUELI_DAZHUAN=1;
-	const XUELI_BENKE=2;
-	
-	/**
-	 * 定义4常量，分别记录学历情况，中专，大专，本科
-	 * @return 0,1,2
-	 */
-	const SOURCE_TALENT_MARKET=0;
-	const SOURCE_ONLINE_RECRUITMENT=1;
-	const SOURCE_CAMPUS_RECRUITMENT=2;
-	const SOURCE_INTRODUCED=3;
-	const SOURCE_TRANSFER=4;
 
-
-	
-	
 	
 	public static function model($className=__CLASS__)
 	{
@@ -107,7 +80,12 @@ class RecruitmentMain extends CActiveRecord
 		return array(
 			'recruitmentContacts' => array(self::HAS_MANY, 'RecruitmentContact', 'recruitment_id'),
 			'staffMains' => array(self::HAS_MANY, 'StaffMain', 'recruitment_id'),
-			'sourceType'=>array(self::BELONGS_TO,'Source','source_types')
+			'sourceType'=>array(self::BELONGS_TO,'Source','source_types'),
+			'sourceName'=>array(self::BELONGS_TO,'Source','source'),
+			'configAge'=>array(self::BELONGS_TO,'Config','age'),
+			'configEducationalLevel'=>array(self::BELONGS_TO,'Config','educational_level'),
+			'configStatus'=>array(self::BELONGS_TO,'Config','user_status'),
+				
 		);
 	}
 
@@ -117,7 +95,7 @@ class RecruitmentMain extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'recruitment_id' => 'Recruitment_id',
+			'recruitment_id' => '序号',
 			'recruitment_name' => '姓名',
 			'age' => '性别',
 			'contact_number' => '联络电话',
@@ -172,39 +150,7 @@ class RecruitmentMain extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-	/**
-	 * get config age options
-	 */
-	public function getAgeOptions()
-	{
-		return array(
-					self::AGE_MAN=>'男',
-					self::AGE_WOMAN=>'女',
-				);
-	}
-	public function getAgeText(){
-		$ageOptions=$this->ageOptions;
-		return isset($ageOptions[$this->age]) ?
-		$ageOptions[$this->age] :
-		"unknow age ({$this->age})";
-	}
-	/**
-	 * get config Educational Level options
-	 */
-	public function getEducationalLevelOptions()
-	{
-		return array(
-				self::XUELI_ZHONGZHUAN=>'中专',
-				self::XUELI_DAZHUAN=>'大专',
-				self::XUELI_BENKE=>'本科',
-		);
-	}
-	public function getEducationalLevelText(){
-		$educationalLevelOptions=$this->educationalLevelOptions;
-		return isset($educationalLevelOptions[$this->educational_level]) ?
-		$educationalLevelOptions[$this->educational_level] :
-		"unknow Educational Level ({$this->educational_level})";
-	}
+
 
 
 }

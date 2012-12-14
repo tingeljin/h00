@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Configs'=>array('index'),
-	'Create',
+	'CreateConfigType',
 );
 
 $this->menu=array(
@@ -15,4 +15,4 @@ $this->menu=array(
 
 <h1>Create Config</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_formtype', array('model'=>$model)); ?>

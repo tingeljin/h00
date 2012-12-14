@@ -17,13 +17,13 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'age_config'); ?>
-		<?php echo $form->textField($model,'age_config',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->label($model,'setting_pid'); ?>
+		<?php echo $form->textField($model,'setting_pid'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'recruitment_status'); ?>
-		<?php echo $form->textField($model,'recruitment_status',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->label($model,'setting_name'); ?>
+		<?php echo $form->textField($model,'setting_name',array('size'=>50,'maxlength'=>50)); ?>
 	</div>
 
 	<div class="row buttons">

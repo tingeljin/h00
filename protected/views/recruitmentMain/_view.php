@@ -14,7 +14,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('age')); ?>:</b>
-	<?php echo CHtml::encode($data->getAgeText()); ?>
+	<?php echo CHtml::encode($data->configAge->setting_name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('contact_number')); ?>:</b>
@@ -22,11 +22,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('user_status')); ?>:</b>
-	<?php echo CHtml::encode($data->user_status); ?>
+	<?php echo CHtml::encode($data->configStatus->setting_name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('educational_level')); ?>:</b>
-	<?php echo CHtml::encode($data->getEducationalLevelText()); ?>
+	<?php echo CHtml::encode($data->configEducationalLevel->setting_name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('graduated_school')); ?>:</b>
@@ -51,7 +51,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('source')); ?>:</b>
-	<?php echo CHtml::encode($data->source); ?>
+	<?php echo CHtml::encode($data->sourceName->name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('other')); ?>:</b>

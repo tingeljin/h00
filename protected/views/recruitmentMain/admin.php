@@ -47,13 +47,13 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'recruitment_id',
 		'recruitment_name',
-		array('name'=>'age','filter'=>$model->getAgeOptions(),'value'=>'$data->getAgeText()'),
+		array('name'=>'age','filter'=>Config::model()->getConfigAgeOptions(),'value'=>'$data->configAge->setting_name'),
 		'contact_number',
-		'user_status',
+		array('name'=>'user_status','filter'=>Config::model()->getConfigStatusOptions(),'value'=>'$data->configStatus->setting_name'),
 		//'educational_level',
-		array('name'=>'educational_level','filter'=>$model->getEducationalLevelOptions(),'value'=>'$data->getEducationalLevelText()'),
+		array('name'=>'educational_level','filter'=>Config::model()->getConfigEducationalLevelOptions(),'value'=>'$data->configEducationalLevel->setting_name'),
 		//'source_types',
-		array('name'=>'source_types','filter'=>Source::model()->getSourceTypesOptions(),'value'=>'$data->sourceType->name'),
+		array('name'=>'source_types','filter'=>Source::model()->getSourceTypesOptions(),'value'=>'$data->sourceName->name'),
 		/*
 		'graduated_school',
 		'hometown',

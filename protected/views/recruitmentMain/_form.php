@@ -23,7 +23,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'age'); ?>
-		<?php echo $form->dropDownList($model,'age',$model->getAgeOptions(),array('empty'=>'-请选择-')); ?>
+		<?php echo $form->dropDownList($model,'age',Config::model()->getConfigAgeOptions(),array('empty'=>'-请选择-')); ?>
 		<?php echo $form->error($model,'age'); ?>
 		
 	</div>
@@ -36,13 +36,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'user_status'); ?>
-		<?php echo $form->textField($model,'user_status'); ?>
+		<?php echo $form->dropDownList($model,'user_status',Config::model()->getConfigStatusOptions()); ?>
 		<?php echo $form->error($model,'user_status'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'educational_level'); ?>
-		<?php echo $form->dropDownList($model,'educational_level',$model->getEducationalLevelOptions()); ?>
+		<?php echo $form->dropDownList($model,'educational_level',Config::model()->getConfigEducationalLevelOptions()); ?>
 		<?php echo $form->error($model,'educational_level'); ?>
 	</div>
 
@@ -72,13 +72,21 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'source_types'); ?>
-		<?php echo $form->dropDownList($model,'source_types',Source::model()->getSourceTypesOptions()); ?>
+		<?php echo $form->dropDownList($model,'source_types',Source::model()->getSourceTypesOptions(),array(
+				'empty'=>'-请选择-',
+				'ajax'=>array(
+					'url'=>Yii::app()->createUrl('recruitmentmain/dynamicSource'),
+					'data'=>array('pid'=>'js:this.value'),	
+					'update'=>'#RecruitmentMain_source',
+					),
+				
+				)); ?>
 		<?php echo $form->error($model,'source_types'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'source'); ?>
-		<?php echo $form->textField($model,'source',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->dropDownList($model,'source',Source::model()->getSourceOptions($model->source_types)); ?>
 		<?php echo $form->error($model,'source'); ?>
 	</div>
 	

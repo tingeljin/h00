@@ -32,7 +32,7 @@ class ConfigController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('createconfigsub','update','createconfigtype'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -60,7 +60,7 @@ class ConfigController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreateConfigType()
 	{
 		$model=new Config;
 
@@ -70,12 +70,31 @@ class ConfigController extends Controller
 		if(isset($_POST['Config']))
 		{
 			$model->attributes=$_POST['Config'];
+			$model->setting_pid=0;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->setting_id));
 		}
 
-		$this->render('create',array(
+		$this->render('createconfigtype',array(
 			'model'=>$model,
+		));
+	}
+	public function actionCreateConfigSub()
+	{
+		$model=new Config;
+	
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+	
+		if(isset($_POST['Config']))
+		{
+			$model->attributes=$_POST['Config'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->setting_id));
+		}
+	
+		$this->render('createconfigsub',array(
+				'model'=>$model,
 		));
 	}
 
